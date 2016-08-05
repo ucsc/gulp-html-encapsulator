@@ -1,11 +1,11 @@
-# HTML inliner
+# Create standalone HTML files
 
-Node.js tool to make encapsulated HTML files. It takes a folder of HTML/CSS/images and:
+Node.js tool to make encapsulated HTML files by combining HTML/CSS/images into one file. Given a folder of HTML/CSS/images this tool will:
 
-- Puts the external stylesheet into a `style` block
-- Converts linked images to dataURIs
+- Put external stylesheets into a `<style>` block.
+- Convert linked images to dataURIs.
 
-Creates a single HTML file with all of the previously external resources inline.
+## Instructions
 
 1. Clone this repository
 2. `cd` into this project directory and run `npm install`  
