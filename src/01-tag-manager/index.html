@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8" />
+		<!-- smoosh -->
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<!-- endsmoosh -->
+		<title>Adding a new WCMS site to Google Tag Manager</title>
+	</head>
+<body>
+<h1>Adding a new WCMS site to Google Tag Manager</h1>
+
+<p><strong>Background:</strong> As of December 21, 2015, Google Tag Manager is loaded on every WCMS page. Google Tag Manager (GTM) allows us to load additional <code>script</code> tags <em>dynamically</em>, rather than pasting the code directly into WCMS templates.</p>
+
+<p>The simplest implementation of GTM dynamically adds Google Analytics code to every page after the page is loaded. However, we also want GTM to use a <strong>different</strong> Google Analytics ID depending on the hostname of the site. For example:</p>
+
+<ul>
+	<li><strong>www.ucsc.edu</strong> should use <code>UA-4301164-1</code></li>
+	<li><strong>datamgmt.ucsc.edu</strong>, a newer site, should use <code>UA-4301164-16</code></li>
+</ul>
+
+<p>In Google Tag Manager, we use a custom variable to switch the Google Analytics ID based on the hostname of the site. By default, the custom variable uses the first Google Analytics ID. Every time a new WCMS site is created, we tell GTM to use the second Google Analytics ID instead. </p>
+
+<hr />
+
+<h2>1. Where to go in Google Tag Manager</h2>
+
+<p>Log in to Google Tag Manager and go to the <code>www.ucsc.edu</code> container.</p>
+
+<ul>
+	<li>In the left column, click <strong>Variables</strong>. (1)</li>
+	<li>Scroll down to &quot;User-Defined Variables&quot; and click <strong>Analytics ID</strong>. (2)</li>
+</ul>
+
+<figure><img src="gtm-1.png"/></figure>
+
+<hr />
+
+<h2>2. Configure the variable</h2>
+
+<ul>
+	<li>Click the pencil on the right, next to &quot;Configure Variable.&quot; (3) </li>
+</ul>
+
+<figure><img src="gtm-2.png"/></figure>
+
+<hr />
+
+<p>This variable uses a key-value store to tell GTM which Google Analytics ID to include when it dynamically adds analytics code to each page.</p>
+
+<ul>
+	<li>Click the <strong>Add Row</strong> button. (4)</li>
+	<li>Enter the hostname for the new site as the input. (5)</li>
+	<li>Click the lego block and select the <strong>GA ID 2</strong> variable for the output. (6)</li>
+	<li>Save your changes. (7)</li>
+</ul>
+
+<figure><img src="gtm-3.png"/></figure>
+
+<hr />
+
+<h2>3. Publish the updated GTM container</h2>
+
+<p>Now that you&#39;ve added a new site, you need to publish these changes so GTM starts using them.</p>
+
+<p>In the top-right of the GTM interface, the <strong>Publish</strong> button will turn from gray to red, indicating you have new changes to publish.</p>
+
+<ul>
+	<li>Press the publish button and your changes will go live. (8)</li>
+</ul>
+
+<figure><img src="gtm-4.png"/></figure>
+
+<hr />
+
+<h2>4. (Optional) Testing your changes</h2>
+
+<p>You can use the <a href="https://chrome.google.com/webstore/detail/google-analytics-debugger/jnkmfdileelhofjcijamephohjechhna">Google Analytics Debugger</a> to test your configuration changes (assuming the site is live and the DNS for the hostname is configured).</p>
+
+<p>With the GA Debugger turned on (the icon in the Chrome window should say &quot;on&quot;), visit the site you want to test and bring up the Chrome developer tools console (<strong>option-cmd-J</strong> on the Mac).</p>
+
+<p>Look for the &quot;trackingId&quot; variable. For older sites, the ID will be <code>UA-4301164-1</code>. For newer sites, it will be <code>UA-4301164-16</code>.</p>
+
+<figure><img src="gtm-5.png"/></figure>
+
+</body>
+</html>
+

@@ -1,0 +1,16 @@
+{
+  "name": "emergency-app-guides",
+  "version": "1.0.0",
+  "description": "Takes assets from Emergency app Guides and smooshes them into a single file.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "gulp"
+  },
+  "author": "Rob Knight",
+  "license": "ISC",
+  "dependencies": {
+    "gulp": "^3.9.1",    
+    "gulp-image64": "^1.0.0",
+    "gulp-inline": "^0.1.1"
+  }
+}
