@@ -1,6 +1,4 @@
-# Create standalone HTML files
-
-Node.js tool to make encapsulated HTML files by combining HTML/CSS/images into one file. Given a folder of HTML/CSS/images this tool will:
+Node.js tool ([gulp](http://gulpjs.com) with plugins) to create encapsulated HTML files by combining HTML/CSS/images into one file. Given a folder of HTML/CSS/images this tool will:
 
 - Put external stylesheets into a `<style>` block.
 - Convert linked images to dataURIs.
