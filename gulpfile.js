@@ -9,4 +9,12 @@ gulp.task('smoosh', function () {
         .pipe(gulp.dest('build/'));
 });
 
+// 1. Convert md -> HTML
+// 2. Add styles from a base.css stylesheet that is in the src directory
+// 3. Base64 encode any img tags
+// 4. Write the HTML file to the build directory
+
+// Reference: http://gulpjs.com
+// Reference: https://www.npmjs.com/package/gulp-template-html
+
 gulp.task('default', ['smoosh']);
