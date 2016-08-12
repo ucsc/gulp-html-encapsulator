@@ -1,6 +1,8 @@
 var gulp = require('gulp');
 var smoosh = require('gulp-inline');
 var image64 = require('gulp-image64');
+var markdown = require('gulp-markdown');
+var template = require('gulp-template-html');
 
 gulp.task('smoosh', function () {
     gulp.src('src/**/*.html')        
@@ -16,5 +18,14 @@ gulp.task('smoosh', function () {
 
 // Reference: http://gulpjs.com
 // Reference: https://www.npmjs.com/package/gulp-template-html
+
+gulp.task('markdown', function () {
+    return gulp.src('src/**/*.md')
+        .pipe(markdown())
+        .pipe(template('static/template.html'))
+        .pipe(smoosh())
+        .pipe(image64())
+        .pipe(gulp.dest('build/'));
+});
 
 gulp.task('default', ['smoosh']);
